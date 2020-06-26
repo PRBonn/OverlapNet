@@ -1,0 +1,57 @@
+# Configuration for demos (specifying all the paths)
+
+# ----------------------------------------------
+# Experiment definition
+#
+
+
+# Demo 1: Generating different types of data from the LiDAR scan
+Demo1:
+  # the folder of raw LiDAR scans
+  scan_folder: "data/scans"
+  # the folder of raw semantic predictions
+  semantic_folder: "data/semantic_probs"
+  # the folder to store the generated data
+  dst_folder: "data/preprocess_data_demo"
+
+
+# Demo 2: Inferring overlap and relative yaw angle between two LiDAR scans
+Demo2:
+  # path of Network configuration file
+  network_config: "config/network.yml"
+  # sepecify paths of two scans
+  scan1_path: "data/scans/000000.bin"
+  scan2_path: "data/scans/000001.bin"
+  # seq label for inferring
+  infer_seqs: "preprocess_data_demo"
+
+# Demo 3: Loop closure detection
+Demo3:
+  # path of Network configuration file
+  network_config: "config/network.yml"
+  # sepecify paths
+  # path of poses
+  poses_file: "data/07/poses.txt"
+  # path of calibration file of the dataset
+  calib_file: "data/07/calib.txt"
+  # path of raw LiDAR scan folder
+  scan_folder: "data/07/velodyne"
+  # path of covariance
+  covariance_file: "data/07/covariance.txt"
+  # seq label for inferring
+  infer_seqs: "07"
+
+# Demo4: Generating ground truth overlap and yaw for training and testing
+Demo4:
+  # sepecify paths
+  # path of poses
+  poses_file: "data/07/poses.txt"
+  # path of calibration file of the dataset
+  calib_file: "data/07/calib.txt"
+  # path of raw LiDAR scan folder
+  scan_folder: "data/07/velodyne"
+  # the folder to store the generated data
+  dst_folder: "data/preprocess_data_demo"
+
+
+

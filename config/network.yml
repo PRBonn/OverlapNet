@@ -1,0 +1,88 @@
+# Configuration for OverlapNet (includes training and validation)
+
+# ----------------------------------------------
+# Experiment definition
+#
+
+# Path where all experiments are stored. Data of current experiment
+# will be in experiments_path/testname
+experiments_path: "/tmp"
+
+# String which defines experiment
+testname: "experiment_test1"
+
+# weights from older training. Not used if empty
+pretrained_weightsfilename: "data/model_geo.weight"
+
+# What input to use ?
+# Be aware that the networks will have different number of weights, thus
+# a model trained with only depth cannot be used together with normals
+use_depth: True                    # default: True if parameter not there
+use_normals: True                  # default: True if parameter not there
+use_class_probabilities: False     # default: False if parameter not there
+use_class_probabilities_pca: False # default: False if parameter not there.
+use_intensity: False               # default: False if parameter not there
+
+# ----------------------------------------------
+# Train and test data
+#
+# the folder of dataset
+data_root_folder: "data/"
+
+# use multiple seqs for training, for testing phase please disable it
+training_seqs: "07"   
+
+# use multiple seqs for testing, for training phase please disable it
+testing_seqs: "07"
+
+# seq label for inferring
+infer_seqs: "07"
+
+batch_size :  16
+# No of batches per epoch, thus the actual used train data is 
+# batch_size*no_batches_in_epoch. 
+# If bigger than train/test data, all train/test data will be used.
+no_batches_in_epoch : 100000000000
+no_epochs :  100
+# No of samples for validation. If bigger than testdata, all testdata is used.
+no_test_pairs :  100000000000
+
+
+
+# ----------------------------------------------
+# Training parameters
+#
+learning_rate: 0.001
+momentum: 0.5
+learning_rate_decay: 1.0e-06
+
+
+
+# ----------------------------------------------
+# Model definition
+#
+model:
+  # Name of model.
+  modelType: 'SiameseNetworkTemplate'
+  ##modelType: 'DeltaLayerConv1Network'
+  # If the model is the generic SiameseNetworkTemplate, then the name of the
+  # leg and head can be given here
+  legsType: '360OutputkLegs'
+  overlap_head: 'DeltaLayerConv1NetworkHead'
+  orientation_head: 'CorrelationHead'
+  # size of one input image, thus input size of one leg of siamese network (heightxwidth)
+  # no_channels are defined due to used inputs channels above.
+  inputShape: [64,900]
+  # leg output width
+  leg_output_width: 360
+  # Strides in first layer. Default is [2,2] which is useful for standard images
+  strides_layer1: [2,2]
+  # an additional layer 3a will be added with stride(1,2) with the following option.
+  # default: False
+  additional_unsymmetric_layer3a: True
+
+# ----------------------------------------------
+# Special settings for validation
+#
+show_plots: True
+
