@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2020 Xieyuanli Chen, Thomas Läbe, Cyrill Stachniss, Photogrammetry & Robotics Bonn
+Copyright (c) 2020 Xieyuanli Chen, Thomas Läbe, Cyrill Stachniss, Photogrammetry & Robotics Bonn, University of Bonn
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
