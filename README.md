@@ -25,7 +25,7 @@ If you use our implementation in your academic work, please cite the correspondi
 
 ## Dependencies
 
-We are using standalone keras with a tensflow backend as a library for neural networks.
+We are using standalone keras with a tensorflow backend as a library for neural networks.
 
 In order to do training and testing on a whole dataset, you need a nvidia GPU.
 The demos still are fast enough when using the neural network on CPU.
@@ -38,7 +38,8 @@ To use a GPU, first you need to install the nvidia driver and CUDA, so have fun!
 
   ```bash
   sudo apt-get update 
-  sudo apt-get install -y python3-pip python3-tk 
+  sudo apt-get install -y python3-pip python3-tk
+  sudo -H pip3 install --upgrade pip
   ```
 
 - Python dependencies (may also work with different versions than mentioned in the requirements file)
