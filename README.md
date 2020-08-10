@@ -9,7 +9,7 @@ OverlapNet is modified Siamese Network that predicts the overlap and relative ya
 Developed by [Xieyuanli Chen](http://www.ipb.uni-bonn.de/people/xieyuanli-chen/) and [Thomas Läbe](https://www.ipb.uni-bonn.de/people/thomas-laebe/).
 
 
-<img src="pics/architecture_icra2020.png" width="800">
+<img src="pics/architecture.png" width="800">
 
 Pipeline overview of OverlapNet.
 
