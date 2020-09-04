@@ -22,7 +22,7 @@ If you use our implementation in your academic work, please cite the correspondi
 			booktitle = {Proceedings of Robotics: Science and Systems (RSS)},
 			year = {2020},
 			codeurl = {https://github.com/PRBonn/OverlapNet/},
-			videourl = {https://youtu.be/TBD},
+			videourl = {https://www.youtube.com/watch?v=YTfliBco6aw},
 	}
 
 ## Dependencies
