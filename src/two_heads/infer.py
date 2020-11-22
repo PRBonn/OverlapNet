@@ -159,17 +159,24 @@ class Infer():
     
     return overlap_out, yaw_out
   
-  def infer_multiple(self, current_frame_id, reference_frame_id):
+  def infer_multiple(self, file_names, current_frame_id, reference_frame_id):
     """ Infer with multiple input pairs.
         Args:
-          coord_current_frame: 1D array with two elements X and Y
+          file_names: All sample files, for example ['000000','000001','000004'] or ['000000.bin','000001.bin','000004.bin']
+          current_frame_id: index of the first LiDAR scan ,for example [0,1,2]
+          reference_frame_id: index of the second LiDAR scan ,for example [2,1,1]
+          Example:
+            infer_multiple(['000000','000001','000004'],[0,1,2],[2,1,1])
+            This will output the overlap of ('000000','000004'),('000001','000001') and ('000004','000001')
     """
-    filename = [str(current_frame_id).zfill(6)]
-    self.feature_volumes.append(self.create_feature_volumes(filename)[0])
+    if len(current_frame_id) != len(reference_frame_id):
+      raise Exception('Please make sure the current_frame_id and reference_frame_id have the same size.')
+    file_names=[os.path.basename(v).replace('.bin', '') for v in file_names]
+    self.feature_volumes=self.create_feature_volumes(file_names)
     
     if len(reference_frame_id) > 0:
       pair_indizes = np.zeros((len(reference_frame_id), 2), dtype=int)
-      pair_indizes[:, 1] = np.ones(len(reference_frame_id)) * current_frame_id
+      pair_indizes[:, 1] = current_frame_id
       pair_indizes[:, 0] = reference_frame_id
       
       test_generator_head = ImagePairOverlapSequenceFeatureVolume(pair_indizes, np.zeros((len(pair_indizes))),
@@ -214,23 +221,24 @@ class Infer():
     
 
 if __name__ == '__main__':
-  configfilename = '../../config/config.yml'
+  configfilename = os.path.abspath('./config/multiple.yml')
   
   if len(sys.argv) > 1:
-    configfilename = sys.argv[1]
+    configfilename = os.path.abspath(sys.argv[1])
+  config = yaml.load(open(configfilename))
+  infer = Infer(config)
   if len(sys.argv) > 2:
     scan1 = sys.argv[2]
     scan2 = sys.argv[3]
+    # Test infer one
+    overlap, yaw = infer.infer_one(scan1, scan2)
+    print("Overlap:  ", overlap)
+    print("Orientation:  ", yaw)
   
-  config = yaml.load(open(configfilename))
-  infer = Infer(config)
-  
-  # Test infer one
-  overlap, yaw = infer.infer_one(scan1, scan2)
-  print("Overlap:  ", overlap)
-  print("Orientation:  ", yaw)
-  
+
   # Test infer multiple
-  model_outputs = infer.infer_multiple([1], [0, 1])
+  model_outputs = infer.infer_multiple(["000000","000001"], [0, 0, 1, 1],[ 0, 1, 0, 1])
+  #or
+  # model_outputs = infer.infer_multiple(["000000.bin","000001.bin"], [0, 0, 1, 1],[ 0, 1, 0, 1])
   print("Overlap:  ", model_outputs[0])
-  print("Orientation:  ", np.argmax(model_outputs[1], axis=1))
+  print("Orientation:  ", model_outputs[1])
