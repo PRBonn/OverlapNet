@@ -57,7 +57,7 @@ def com_overlap_yaw(scan_paths, poses, frame_idx, leg_output_width=360):
   
   # ground truth format: each row contains [current_frame_idx, reference_frame_idx, overlap, yaw]
   ground_truth_mapping = np.zeros((len(scan_paths), 4))
-  ground_truth_mapping[:, 0] = np.ones(len(scan_paths)) * (len(scan_paths) - 1)
+  ground_truth_mapping[:, 0] = np.ones(len(scan_paths)) * frame_idx
   ground_truth_mapping[:, 1] = np.arange(len(scan_paths))
   ground_truth_mapping[:, 2] = overlaps
   ground_truth_mapping[:, 3] = yaw_idxs
