@@ -20,11 +20,11 @@ from ImagePairOverlapOrientationSequence import ImagePairOverlapOrientationSeque
 
 
 class Infer():
-  """ A class used for inferring overlap and yaw-angle between two LiDAR scans.
+  """ A class used for inferring overlap and yaw-angle between LiDAR scans.
   """
   
   def __init__(self, config):
-    """ Init:
+    """ Initialization of the class
         Args:
           config: A dict with configuration values, usually loaded from a yaml file
     """
@@ -160,9 +160,26 @@ class Infer():
     return overlap_out, yaw_out
   
   def infer_multiple(self, current_frame_id, reference_frame_id):
-    """ Infer with multiple input pairs.
+    """ Infer for loopclosing: The current frame versus old frames.
+        This is a special function, because only the feature volume of the current frame
+        is computed. For the older reference frames the feature volumes must be already
+        there. This is usually the case, because they were the "current frame" in
+        previous calls of the function and the feature volumes are stored within
+        this class for every call. For the starting frame, call this function
+        with an empty list of reference_frame_id.
+        
+        For a more general usage use Infer.infer_multiple_vs_multiple().
+    
         Args:
-          coord_current_frame: 1D array with two elements X and Y
+          current_frame_id: The id (an int) of the current frame. This corresponds
+                            to depth and normal and scan files, 
+                            e.g. 6 --> file 000006.bin or 000006.npy is used.
+                            For this frame the feature volume is calculated and appended to
+                            the list of already calculated feature volumes.
+          reference_frame_id: a list of ids (aka a list of ints) of previous frames. 
+                              Can be empty
+        Returns:
+          A tuple (overlaps, yaws) with two lists of the overlaps and yaw angles between the scans
     """
     filename = [str(current_frame_id).zfill(6)]
     self.feature_volumes.append(self.create_feature_volumes(filename)[0])
@@ -184,11 +201,46 @@ class Infer():
     
     else:
       return None
+    
+  def infer_multiple_vs_multiple(self, file_names, first_idxs, second_idxs):
+    """ Infer with multiple input pairs.
+        Args:
+          file_names: All sample scan files, for example ['000000','000001','000004'] or ['000000.bin','000001.bin','000004.bin']
+          first_idxs: indizes of the first LiDAR scans ,for example [0,1,2]
+          second_idxs: indizes of the second LiDAR scans ,for example [2,1,1]
+          Example:
+            infer_multiple(['000000','000001','000004'],[0,1,2],[2,1,1])
+            This will output the overlaps and yaws of ('000000','000004'),('000001','000001') and ('000004','000001')
+        Returns:
+            A tuple (overlaps, yaws) with two lists of the overlaps and yaw angles between the scans
+    """
+    if len(first_idxs) != len(second_idxs):
+      raise Exception('Please make sure the first_idxs and second_idxs have the same size.')
+    file_names=[os.path.basename(v).replace('.bin', '') for v in file_names]
+    self.feature_volumes=self.create_feature_volumes(file_names)
+    
+    if len(second_idxs) > 0:
+      pair_indizes = np.zeros((len(second_idxs), 2), dtype=int)
+      pair_indizes[:, 1] = first_idxs
+      pair_indizes[:, 0] = second_idxs
+      
+      test_generator_head = ImagePairOverlapSequenceFeatureVolume(pair_indizes, np.zeros((len(pair_indizes))),
+                                                                  self.batch_size, np.array(self.feature_volumes))
+      model_outputs = self.head.predict_generator(test_generator_head, max_queue_size=10,
+                                                  workers=8, verbose=1)
+      
+      overlap_out = model_outputs[0].squeeze()
+      yaw_out = 180 - np.argmax(model_outputs[1], axis=1)
+    
+      return overlap_out, yaw_out
+    
+    else:
+      return None    
   
   def create_feature_volumes(self, filenames):
     """ create feature volumes, thus execute the leg.
         Args:
-          filenames: numpy array of input file names
+          filenames: numpy array of input file names (list of strings without extension, e.g. ['000000', '000001'])
         Returns:
           A n x width x height x channels numpy array of feature volumes
     """
@@ -212,25 +264,39 @@ class Infer():
     
     return feature_volumes
     
-
+# Test the infer functions
 if __name__ == '__main__':
-  configfilename = '../../config/config.yml'
+  configfilename = 'config/network.yml'
   
   if len(sys.argv) > 1:
     configfilename = sys.argv[1]
   if len(sys.argv) > 2:
     scan1 = sys.argv[2]
     scan2 = sys.argv[3]
+  else:
+    scan1 = '000020.bin'
+    scan2 = '000021.bin'
   
   config = yaml.load(open(configfilename))
   infer = Infer(config)
   
-  # Test infer one
+  print('Test infer one ...')
   overlap, yaw = infer.infer_one(scan1, scan2)
   print("Overlap:  ", overlap)
   print("Orientation:  ", yaw)
   
-  # Test infer multiple
-  model_outputs = infer.infer_multiple([1], [0, 1])
-  print("Overlap:  ", model_outputs[0])
-  print("Orientation:  ", np.argmax(model_outputs[1], axis=1))
+  print('Test infer multiple (last scan vs previous) ...')
+  # Note that this is special for loop-closing, all previous have to be asked !
+  infer.infer_multiple(0, [])
+  overlaps, yaws = infer.infer_multiple(1, [0])
+  overlaps, yaws = infer.infer_multiple(2, [0,1])
+  print("Overlaps:  ", overlaps)
+  print("Orientations:  ", yaws)
+
+  print('Test infer many versus many ...')
+  file_names  = ['000010','000021','000022.bin']
+  first_idxs  = [0,1,2]
+  second_idxs = [2,1,1]
+  overlaps, yaws = infer.infer_multiple_vs_multiple(file_names, first_idxs, second_idxs)
+  print("Overlaps:  ", overlaps)
+  print("Orientations:  ", yaws)
