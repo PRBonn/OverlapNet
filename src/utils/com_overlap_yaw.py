@@ -31,13 +31,14 @@ def com_overlap_yaw(scan_paths, poses, frame_idx, leg_output_width=360):
   visible_points = project_points[current_range > 0]
   valid_num = len(visible_points)
   current_pose = poses[frame_idx]
-  visible_points_world = current_pose.dot(visible_points.T).T
 
-  for refrence_idx in range(len(scan_paths)):
+  for reference_idx in range(len(scan_paths)):
     # generate range projection for the reference frame
-    refrence_pose = poses[refrence_idx]
-    points_reference = np.linalg.inv(refrence_pose).dot(visible_points_world.T).T
-    reference_range, reference_points, _, _ = range_projection(points_reference)
+    reference_pose = poses[reference_idx]
+    reference_points = load_vertex(scan_paths[reference_idx])
+    reference_points_world = reference_pose.dot(reference_points.T).T
+    reference_points_in_current = np.linalg.inv(current_pose).dot(reference_points_world.T).T
+    reference_range, _, _, _ = range_projection(reference_points_in_current)
     
     # calculate overlap
     overlap = np.count_nonzero(
@@ -45,7 +46,7 @@ def com_overlap_yaw(scan_paths, poses, frame_idx, leg_output_width=360):
     overlaps.append(overlap)
     
     # calculate yaw angle
-    relative_transform = np.linalg.inv(current_pose).dot(refrence_pose)
+    relative_transform = np.linalg.inv(current_pose).dot(reference_pose)
     relative_rotation = relative_transform[:3, :3]
     _, _, yaw = euler_angles_from_rotation_matrix(relative_rotation)
 
@@ -53,7 +54,7 @@ def com_overlap_yaw(scan_paths, poses, frame_idx, leg_output_width=360):
     yaw_element_idx = int(- (yaw / np.pi) * yaw_resolution//2 + yaw_resolution//2)
     yaw_idxs.append(yaw_element_idx)
 
-    # print('finished pair id: ', refrence_idx)
+    # print('finished pair id: ', reference_idx)
   
   # ground truth format: each row contains [current_frame_idx, reference_frame_idx, overlap, yaw]
   ground_truth_mapping = np.zeros((len(scan_paths), 4))
