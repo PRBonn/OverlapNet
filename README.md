@@ -1,11 +1,11 @@
 # OverlapNet - Loop Closing for 3D LiDAR-based SLAM
 
 ### Table of Contents
-0. [Introduction](#OverlapNet was nominated as the Best System Paper at Robotics: Science and Systems (RSS) 2020)
+0. [Introduction](#OverlapNet)
 0. [Publication](#Publication)
 0. [Logs](#Logs)
 0. [Dependencies](#Dependencies)
-0. [How to use](#How to use)
+0. [How to use](#How)
 0. [Application](#Application)
 0. [License](#License)
 
