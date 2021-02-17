@@ -1,5 +1,15 @@
 # OverlapNet - Loop Closing for 3D LiDAR-based SLAM
 
+### Table of Contents
+0. [Introduction](#OverlapNet was nominated as the Best System Paper at Robotics: Science and Systems (RSS) 2020)
+0. [Publication](#Publication)
+0. [Logs](#Logs)
+0. [Dependencies](#Dependencies)
+0. [How to use](#How to use)
+0. [Application](#Application)
+0. [License](#License)
+
+
 ### OverlapNet was nominated as the Best System Paper at Robotics: Science and Systems (RSS) 2020 
 
 This repo contains the code for our RSS2020 paper, OverlapNet.
@@ -24,6 +34,15 @@ If you use our implementation in your academic work, please cite the correspondi
 			codeurl = {https://github.com/PRBonn/OverlapNet/},
 			videourl = {https://www.youtube.com/watch?v=YTfliBco6aw},
 	}
+
+## Logs
+### Version 1.1
+- Added a method to the Infer class for inference with multiple frames versus multiple frames.
+- Updated TensorFlow version in dependencies.
+- Fixed bugs in generating ground truth overlap and yaw.
+- Add an application and a link to our overlap-based MCL implementation. 
+### Version 1.0
+Open source initial submission
 
 ## Dependencies
 
@@ -218,6 +237,12 @@ The configuration file should have the following additional settings:
 
 Note that: the provided pre-trained model and preprocessed ground truth are with the constraint that the current frame only finds loop closures in the previous frames.
 
+
+## Application
+### [Overlap-based Monte Carlo Localization](https://github.com/PRBonn/overlap_localization)
+This repo contains the code for our IROS2020 paper: Learning an Overlap-based Observation Model for 3D LiDAR Localization.
+
+It uses the OverlapNet to train an observation model for Monte Carlo Localization and achieves global localization with 3D LiDAR scans.
 
 
 
