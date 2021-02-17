@@ -1,15 +1,5 @@
 # OverlapNet - Loop Closing for 3D LiDAR-based SLAM
 
-### Table of Contents
-0. [Introduction](#OverlapNet)
-0. [Publication](#Publication)
-0. [Logs](#Logs)
-0. [Dependencies](#Dependencies)
-0. [How to use](#How)
-0. [Application](#Application)
-0. [License](#License)
-
-
 ### OverlapNet was nominated as the Best System Paper at Robotics: Science and Systems (RSS) 2020 
 
 This repo contains the code for our RSS2020 paper, OverlapNet.
@@ -22,6 +12,17 @@ Developed by [Xieyuanli Chen](http://www.ipb.uni-bonn.de/people/xieyuanli-chen/)
 <img src="pics/architecture.png" width="800">
 
 Pipeline overview of OverlapNet.
+
+
+### Table of Contents
+0. [Introduction](#OverlapNet-was-nominated-as-the-Best-System-Paper-at-Robotics:-Science-and-Systems-(RSS)-2020)
+0. [Publication](#Publication)
+0. [Logs](#Logs)
+0. [Dependencies](#Dependencies)
+0. [How to use](#How-to-use)
+0. [Application](#Application)
+0. [License](#License)
+
 
 ## Publication
 If you use our implementation in your academic work, please cite the corresponding [paper](https://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/chen2020rss.pdf):  
