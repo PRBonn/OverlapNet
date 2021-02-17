@@ -41,7 +41,7 @@ If you use our implementation in your academic work, please cite the correspondi
 - Added a method to the Infer class for inference with multiple frames versus multiple frames.
 - Updated TensorFlow version in dependencies.
 - Fixed bugs in generating ground truth overlap and yaw.
-- Add an application and a link to our overlap-based MCL implementation. 
+- Added an application and a link to our overlap-based MCL implementation. 
 ### Version 1.0
 Open source initial submission
 
