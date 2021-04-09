@@ -93,6 +93,8 @@ python3 demo/demo1_gen_data.py
 The generated data are stored in `/data/preprocess_data`, and you will get a visualization like this:
 ![](pics/demo1.png)
 
+For generating range and normal images, we have also a much faster implementation in C (with python interface) available
+in our repo https://github.com/PRBonn/overlap_localization (look at `src/prepare_training`).
 
 ##### Demo 2: Inferring overlap and relative yaw angle between two LiDAR scans
 To run demo 2, you need to first download the pre-trained [model](http://www.ipb.uni-bonn.de/html/projects/overlap_net/model_geo.weight).
@@ -109,6 +111,7 @@ python3 demo/demo2_infer.py
 You will get a visualization like this: 
 
 ![](pics/demo2.png)
+
 
 ##### Demo 3: Loop closure detection
 To run demo 3, you need to first download several data:
