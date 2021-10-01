@@ -37,6 +37,7 @@ If you use our implementation in your academic work, please cite the correspondi
 	}
 
 The extended journal version of OverlapNet is [here](http://www.ipb.uni-bonn.de/pdfs/chen2021auro.pdf):
+
 	@article{chen2021auro,
 		author = {X. Chen and T. L\"abe and A. Milioto and T. R\"ohling and J. Behley and C. Stachniss},
 		title = {{OverlapNet: A Siamese Network for Computing LiDAR Scan Similarity with Applications to Loop Closing and Localization}},
