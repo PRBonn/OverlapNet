@@ -36,6 +36,16 @@ If you use our implementation in your academic work, please cite the correspondi
 			videourl = {https://www.youtube.com/watch?v=YTfliBco6aw},
 	}
 
+The extended journal version of OverlapNet is [here](http://www.ipb.uni-bonn.de/pdfs/chen2021auro.pdf):
+	@article{chen2021auro,
+		author = {X. Chen and T. L\"abe and A. Milioto and T. R\"ohling and J. Behley and C. Stachniss},
+		title = {{OverlapNet: A Siamese Network for Computing LiDAR Scan Similarity with Applications to Loop Closing and Localization}},
+		journal = {Autonomous Robots},
+		year = {2021},
+		doi = {10.1007/s10514-021-09999-0},
+		issn = {1573-7527}
+	}
+
 ## Logs
 ### Version 1.1
 - Added a method to the Infer class for inference with multiple frames versus multiple frames.
