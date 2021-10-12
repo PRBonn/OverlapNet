@@ -31,9 +31,7 @@ If you use our implementation in your academic work, please cite the correspondi
 			author = {X. Chen and T. L\"abe and A. Milioto and T. R\"ohling and O. Vysotska and A. Haag and J. Behley and C. Stachniss},
 			title  = {{OverlapNet: Loop Closing for LiDAR-based SLAM}},
 			booktitle = {Proceedings of Robotics: Science and Systems (RSS)},
-			year = {2020},
-			codeurl = {https://github.com/PRBonn/OverlapNet/},
-			videourl = {https://www.youtube.com/watch?v=YTfliBco6aw},
+			year = {2020}
 	}
 
 The extended journal version of OverlapNet is [here](http://www.ipb.uni-bonn.de/pdfs/chen2021auro.pdf):
