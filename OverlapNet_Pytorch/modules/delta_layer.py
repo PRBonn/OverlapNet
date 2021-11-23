@@ -3,7 +3,6 @@ import torch.nn as nn
 import numpy as np
 import random
 
-# 用来计算两条腿输出的difference
 # input : # out_r (bs, 128, 1, 360)
 def deltaLayer(encoded_l, encoded_r, negateDiffs=False):
     bs = encoded_l.shape[0]

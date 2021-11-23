@@ -3,7 +3,7 @@ import torch.nn as nn
 import numpy as np
 import sys
 sys.path.append('../tools/')
-# from read_samples import read_one_sample
+from read_samples import read_one_need_from_seq
 
 
 class featureExtracter(nn.Module):
@@ -94,7 +94,9 @@ class featureExtracter(nn.Module):
 
 
 if __name__ == '__main__':
-    combined_tensor = read_one_sample()
+
+    data_root_folder = "your_path_to_dataset/dataset_full/"
+    combined_tensor = read_one_need_from_seq("000000", "00", data_root_folder)
 
     feature_extracter=featureExtracter(use_transformer=True)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

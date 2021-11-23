@@ -1,5 +1,7 @@
-setuptools==41.0.0
-matplotlib==3.0.3
-sklearn
-tensorflow-gpu==1.15.4
-keras==2.1.5
+torch                     1.9.1+cu111 
+torchaudio                0.9.1                   
+torchvision               0.10.1+cu111        
+pyyaml                    6.0          
+numpy                     1.20.3
+matplotlib                3.4.3
+opencv-python             4.5.4.58
