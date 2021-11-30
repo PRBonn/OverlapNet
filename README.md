@@ -26,21 +26,20 @@ If you use our implementation in your academic work, please cite the correspondi
 
 
 
-#### Training 
+#### Training
 
 ```bash
 python tools/training.py
 ```
 
-#### Testing 
+#### Testing on KITTI00
 ```bash
-python tools/training.py
+python tools/gen_feature_map_kitti00.py
+python tools/testing_kitti00.py
 ```
 
 
 #### Data structure
-
-For training a new model with OverlapNet, you need to first generate preprocessed data and ground truth overlap and yaw angle which you could find examples in [demo1](#demos) and [demo4](#demo-4-generate-ground-truth-overlap-and-yaw-for-training-and-testing).
 
 The recommended data structure is as follows:
 
@@ -58,7 +57,7 @@ The recommended data structure is as follows:
 ├── modules
 └── tools
     ├── amodel1.pth.tar
-    ├── feature_map_kitti00
+    └── feature_map_kitti00
 ```
 
 ## License
