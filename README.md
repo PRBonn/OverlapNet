@@ -50,7 +50,7 @@ The recommended data structure is as follows:
 │       ├── 000000.bin
 │	├── ...
 │	└── 004541.bin
-│   ├── 02
+│   ├── 01
 │   ├── ...
 │   └── 10
 ├── loop_gt_seq00_0.3overlap_inactive.npz
