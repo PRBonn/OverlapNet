@@ -59,6 +59,9 @@ The recommended data structure is as follows:
 	    ├── 000000.png
 	    ├── ...
 	    └── 004541.png
+	├── overlaps
+	    ├── train_set.npz
+	    └── test_set.npz
     ├── 01
     ├── ...
     └── 10
