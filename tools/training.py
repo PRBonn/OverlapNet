@@ -52,7 +52,7 @@ class trainHandler():
         (self.validation_imgf1, self.validation_imgf2, self.validation_dir1, self.validation_dir2, self.validation_overlap) = \
             overlap_orientation_npz_file2string_string_nparray(self.validationdata_npzfiles, shuffle=False)
 
-        self.resume = True
+        self.resume = False
         self.save_name = "amodel0.pth.tar"
 
     def train(self):
