@@ -8,11 +8,7 @@ OverlapNet is modified Siamese Network that predicts the overlap and relative ya
 
 Developed by [Xieyuanli Chen](http://www.ipb.uni-bonn.de/people/xieyuanli-chen/) and [Thomas Läbe](https://www.ipb.uni-bonn.de/people/thomas-laebe/).
 
-This implemention is developed by [Junyi Ma](https://github.com/BIT-MJY)  
-
-
-<img src="pics/architecture.png" width="800">
-
+This pytorch-implemention is developed by [Junyi Ma](https://github.com/BIT-MJY)  
 
 
 ## Publication
@@ -49,40 +45,21 @@ For training a new model with OverlapNet, you need to first generate preprocesse
 The recommended data structure is as follows:
 
 ```bash
-data
-    ├── 07
-    │   ├── calib.txt
-    │   ├── covariance.txt
-    │   ├── poses.txt
-    │   ├── depth
-    │   │   ├── 000000.npy
-    │   │   ├── 000001.npy
-    │   │   └── ...
-    │   ├── normal
-    │   │   ├── 000000.npy
-    │   │   ├── 000001.npy
-    │   │   └── ...
-    │   ├── velodyne
-    │   │   ├── 000000.bin
-    │   │   ├── 000001.bin
-    │   │   └── ...
-    │   └── ground_truth
-    │       ├── ground_truth_overlap_yaw.npz
-    │       ├── test_set.npz
-    │       └── train_set.npz
-    └── model_geo.weight
+├── config
+├── dataset_full
+│   ├── 00
+│       ├── 000000.bin
+│	├── ...
+│	└── 004541.bin
+│   ├── 02
+│   ├── ...
+│   └── 10
+├── loop_gt_seq00_0.3overlap_inactive.npz
+├── modules
+└── tools
+    ├── amodel1.pth.tar
+    ├── feature_map_kitti00
 ```
-
-
-
-
-## Application
-### [Overlap-based Monte Carlo Localization](https://github.com/PRBonn/overlap_localization)
-This repo contains the code for our IROS2020 paper: Learning an Overlap-based Observation Model for 3D LiDAR Localization.
-
-It uses the OverlapNet to train an observation model for Monte Carlo Localization and achieves global localization with 3D LiDAR scans.
-
-
 
 ## License
 
