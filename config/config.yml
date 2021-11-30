@@ -17,7 +17,7 @@ testHandler:
   # the folder of KITTI00 feature maps 
   # dst in gen_feature_map_kitti00.py
   # src in testing_kitti00.py
-  features_folder: "./tools/feature_map_kitti00_bkp"
+  features_folder: "./tools/feature_map_kitti00"
   # the path of ground truth mapping (containing gt loops for each frame)
   gt_path: "./loop_gt_seq00_0.3overlap_inactive.npz"
 
