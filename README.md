@@ -46,13 +46,22 @@ The recommended data structure is as follows:
 ```bash
 ├── config
 ├── dataset_full
-│   ├── 00
-│       ├── 000000.bin
-│	├── ...
-│	└── 004541.bin
-│   ├── 01
-│   ├── ...
-│   └── 10
+    ├── 00
+        ├── depth_map
+	    ├── 000000.png
+	    ├── ...
+	    └── 004541.png
+        ├── intensity_map
+	    ├── 000000.npz
+	    ├── ...
+	    └── 004541.npz
+        ├── normal_map
+	    ├── 000000.png
+	    ├── ...
+	    └── 004541.png
+    ├── 01
+    ├── ...
+    └── 10
 ├── loop_gt_seq00_0.3overlap_inactive.npz
 ├── modules
 └── tools
