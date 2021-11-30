@@ -29,13 +29,15 @@ If you use our implementation in your academic work, please cite the correspondi
 #### Training
 
 ```bash
-python tools/training.py
+cd tools
+python training.py
 ```
 
 #### Testing on KITTI00
 ```bash
-python tools/gen_feature_map_kitti00.py
-python tools/testing_kitti00.py
+cd tools
+python gen_feature_map_kitti00.py
+python testing_kitti00.py
 ```
 
 
