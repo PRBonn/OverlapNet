@@ -8,7 +8,7 @@ OverlapNet is modified Siamese Network that predicts the overlap and relative ya
 
 Developed by [Xieyuanli Chen](http://www.ipb.uni-bonn.de/people/xieyuanli-chen/) and [Thomas Läbe](https://www.ipb.uni-bonn.de/people/thomas-laebe/).
 
-This pytorch-implemention is developed by [Junyi Ma](https://github.com/BIT-MJY)  
+This pytorch-implemention (delta_head_only) is developed by [Junyi Ma](https://github.com/BIT-MJY)  
 
 
 ## Publication
@@ -27,7 +27,6 @@ If you use our implementation in your academic work, please cite the correspondi
 
 
 #### Training
-
 ```bash
 cd tools
 python training.py
