@@ -1,0 +1,23 @@
+dataHandler:
+  # the folder of KITTI datasets
+  dataset_folder: "./dataset_full/"
+  # channels
+  use_depth: True
+  use_intensity: True
+  use_normals: True
+
+
+trainHandler:
+  train_seqs: ["08", "03", "04", "05","06", "07", "09"]
+  valid_seqs: ["02"]
+
+testHandler:
+  # the path of pre-trained model
+  pretrained_model: "./tools/amodel1.pth.tar"
+  # the folder of KITTI00 feature maps 
+  # dst in gen_feature_map_kitti00.py
+  # src in testing_kitti00.py
+  features_folder: "./tools/feature_map_kitti00_bkp"
+  # the path of ground truth mapping (containing gt loops for each frame)
+  gt_path: "./loop_gt_seq00_0.3overlap_inactive.npz"
+
