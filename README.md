@@ -47,7 +47,7 @@ The extended journal version of OverlapNet is [here](http://www.ipb.uni-bonn.de/
 
 ## Logs
 ### Version 1.2
-- We thank [Junyi Ma](https://github.com/BIT-MJY) to create the PyTorch version of OverlapNet(delta-head-only), which can be found in the [pytorch version branch](https://github.com/PRBonn/OverlapNet/tree/pytorch-version).
+- We thank [Junyi Ma](https://github.com/BIT-MJY) to create the PyTorch version of OverlapNet (delta-head-only), which can be found in the [pytorch version branch](https://github.com/PRBonn/OverlapNet/tree/pytorch-version).
 ### Version 1.1
 - Added a method to the Infer class for inference with multiple frames versus multiple frames.
 - Updated TensorFlow version in dependencies.
