@@ -90,11 +90,3 @@ This project is free software made available under the MIT License. For details 
 
 
 
-
-## License
-
-Copyright 2020, Xieyuanli Chen, Thomas Läbe, Cyrill Stachniss, Photogrammetry and Robotics Lab, University of Bonn.
-
-This project is free software made available under the MIT License. For details see the LICENSE file.
-
-
