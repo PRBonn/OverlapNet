@@ -1,5 +1,5 @@
 setuptools==41.0.0
 matplotlib==3.0.3
 sklearn
-tensorflow-gpu==2.5.2
+tensorflow-gpu==2.5.3
 keras==2.1.5
