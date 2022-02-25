@@ -25,7 +25,7 @@ Pipeline overview of OverlapNet.
 
 
 ## Publication
-If you use our implementation in your academic work, please cite the corresponding [paper](https://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/chen2020rss.pdf):  
+If you use our implementation in your academic work, please cite the corresponding paper ([PDF](https://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/chen2020rss.pdf)):  
     
 	@inproceedings{chen2020rss, 
 			author = {X. Chen and T. L\"abe and A. Milioto and T. R\"ohling and O. Vysotska and A. Haag and J. Behley and C. Stachniss},
@@ -34,7 +34,7 @@ If you use our implementation in your academic work, please cite the correspondi
 			year = {2020}
 	}
 
-The extended journal version of OverlapNet is [here](http://www.ipb.uni-bonn.de/pdfs/chen2021auro.pdf):
+The extended journal version of OverlapNet is here ([PDF](http://www.ipb.uni-bonn.de/pdfs/chen2021auro.pdf)):
 
 	@article{chen2021auro,
 		author = {X. Chen and T. L\"abe and A. Milioto and T. R\"ohling and J. Behley and C. Stachniss},
@@ -42,7 +42,10 @@ The extended journal version of OverlapNet is [here](http://www.ipb.uni-bonn.de/
 		journal = {Autonomous Robots},
 		year = {2021},
 		doi = {10.1007/s10514-021-09999-0},
-		issn = {1573-7527}
+		issn = {1573-7527},
+		volume=46,
+		pages={61--81},
+		url = {http://www.ipb.uni-bonn.de/pdfs/chen2021auro.pdf}
 	}
 
 ## Logs
