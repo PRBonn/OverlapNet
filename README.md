@@ -51,7 +51,7 @@ The extended journal version of OverlapNet is here ([PDF](http://www.ipb.uni-bon
 ## News and Logs
 
 ### New Version
-We develop a novel lightweight neural network called [**OverlapTransformer**](https://github.com/haomo-ai/OverlapTransformer) exploiting transformer and achieve fast execution with less than 4 ms per frame in LiDAR similarity estimation.
+We develop a novel lightweight neural network called [**OverlapTransformer**](https://github.com/haomo-ai/OverlapTransformer) exploiting transformer and achieve fast execution with less than 4 ms per frame in estimating LiDAR scans similarity.
 
 ### Version 1.2
 - We thank [Junyi Ma](https://github.com/BIT-MJY) to create the PyTorch version of OverlapNet (delta-head-only), which can be found in the [pytorch version branch](https://github.com/PRBonn/OverlapNet/tree/pytorch-version).
