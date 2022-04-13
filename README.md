@@ -39,11 +39,11 @@ The extended journal version of OverlapNet is here ([PDF](http://www.ipb.uni-bon
 	@article{chen2021auro,
 		author = {X. Chen and T. L\"abe and A. Milioto and T. R\"ohling and J. Behley and C. Stachniss},
 		title = {{OverlapNet: A Siamese Network for Computing LiDAR Scan Similarity with Applications to Loop Closing and Localization}},
-		journal = {Autonomous Robots},
+		journal = {{Autonomous Robots}},
 		year = {2021},
 		doi = {10.1007/s10514-021-09999-0},
 		issn = {1573-7527},
-		volume=46,
+		volume={46},
 		pages={61--81},
 		url = {http://www.ipb.uni-bonn.de/pdfs/chen2021auro.pdf}
 	}
