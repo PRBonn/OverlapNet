@@ -51,6 +51,8 @@ The extended journal version of OverlapNet is here ([PDF](http://www.ipb.uni-bon
 ## News and Logs
 
 ### New Version
+Based on the OverlapTransformer, we propose a novel transformer exploiting sequential LiDAR data to achieve better LiDAR place recognition ([code](https://github.com/BIT-MJY/SeqOT)). 
+
 We develop a novel lightweight neural network called [**OverlapTransformer**](https://github.com/haomo-ai/OverlapTransformer) exploiting transformer and achieve fast execution with less than 4 ms per frame in estimating LiDAR scans similarity.
 
 ### Version 1.2
