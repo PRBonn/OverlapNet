@@ -113,7 +113,7 @@ class testHandler():
                         true_negative  = true_negative + 1
                     elif (not (max_idx in gt_idxes)) and max_overlap > thresh:
                         false_positive = false_positive + 1
-                    elif max_idx in gt_idxes > thresh and max_overlap < thresh:
+                    elif max_idx in gt_idxes  and max_overlap < thresh:
                         false_negative = false_negative + 1
                     # used_num = used_num + 1
                 recall = true_positive / (true_positive + false_negative+1e-4)
