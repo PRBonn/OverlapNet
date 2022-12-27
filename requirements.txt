@@ -1,4 +1,4 @@
-setuptools==41.0.0
+setuptools==65.5.1
 matplotlib==3.0.3
 sklearn
 tensorflow-gpu==2.5.2
